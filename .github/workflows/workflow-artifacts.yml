@@ -24,3 +24,16 @@ jobs:
         with:
           name: single_file
           path: my-artifact.txt
+      - name: Upload from directory
+        uses: actions/upload-artifact@v7
+        with:
+          name: directory_artifact
+          path: artifacts/
+      - name: Upload multiple paths with exclusions
+        uses: actions/upload-artifact@v7
+        with:
+          name: multiple_paths_with_exclusions
+          path: |
+            ./my-artifact.txt
+            artifacts/
+            !**/hostname.txt
