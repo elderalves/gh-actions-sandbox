@@ -1,0 +1,43 @@
+name: simple-workflow
+# To get a trigger on every push in this repo in the main branch
+on:
+  schedule:
+    - cron: "*/6 * * * *" # This will trigger the workflow every 6 minutes
+
+jobs:
+  job1:
+    name: JOB1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running Single Command in Job1
+        run: echo "Hello World from Job 1"
+      - name: Checking OS Release for Github Runner
+        run: cat /etc/os-release
+      - name: Calling Sleep
+        run: sleep 20
+  job2:
+    name: JOB2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running Single Command in Job2
+        run: echo "Hello World from Job 2"
+      - name: Checking OS Release for Github Runner
+        run: cat /etc/os-release
+      - name: Calling Sleep
+        run: sleep 20
+  job3:
+    name: JOB3
+    runs-on: ubuntu-latest
+    needs: [job1]
+    steps:
+      - name: Running Single Command in Job3
+        run: echo "Hello World from Job 3"
+  job4:
+    name: JOB4
+    runs-on: ubuntu-latest
+    needs: [job1, job2]
+    steps:
+      - name: Calling Sleep
+        run: sleep 20
+      - name: Running Single Command in Job4
+        run: echo "Hello World from Job 4"
