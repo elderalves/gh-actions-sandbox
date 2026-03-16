@@ -18,6 +18,7 @@ jobs:
         run: |
           echo `pwd` >> my-artifact.txt
           mkdir -p artifacts
+          hostname >> artifacts/hostname.txt
           ls -ltr
           hostname
       - name: Step-4 - Upload Artifact
