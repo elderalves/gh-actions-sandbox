@@ -1,8 +1,10 @@
 name: simple-workflow
 # To get a trigger on every push in this repo in the main branch
 on:
-  schedule:
-    - cron: "*/6 * * * *" # This will trigger the workflow every 6 minutes
+  push:
+    branches: [main]
+  # schedule:
+  # - cron: "*/6 * * * *" # This will trigger the workflow every 6 minutes
 
 jobs:
   job1:
