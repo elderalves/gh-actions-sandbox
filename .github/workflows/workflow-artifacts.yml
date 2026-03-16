@@ -99,4 +99,5 @@ jobs:
       - name: checking directory post download
         run: |
           pwd
-          ls -ltr
+          ls -ltr single_file
+          ls -ltr download_directory
