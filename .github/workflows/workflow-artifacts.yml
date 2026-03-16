@@ -99,5 +99,7 @@ jobs:
       - name: checking directory post download
         run: |
           pwd
+          echo "CHECKING SINGLE FILE ARTIFACT"
           ls -ltr single_file
+          echo "CHECKING DIRECTORY ARTIFACT"
           ls -ltr download_directory
